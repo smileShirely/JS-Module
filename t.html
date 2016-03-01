@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function Animal(name){
+            this.name = name;
+        }
+        Animal.prototype.run = function(){
+            console.log(this.name + "is running!!");
+        }
+        var a = new Animal("a");
+        var b = new Animal("b");
+        console.log(Animal.prototype) //Animal {}
+        console.log(Animal.prototype instanceof Object) //true prototype是个对象
+        console.log(Animal.prototype.constructor == Animal)//true
+        console.log(a.__proto__ == Animal.prototype) //true __proto__在new的时候会自动加载在实例对象上。在现代浏览器里可以看到
+        console.log(b.__proto__ == Animal.prototype) //true
+        console.log(a.__proto__.__proto__) //Object {} 最后会找到最上面的boject对象
+        console.log(a.__proto__.run == a.run) //true
+        console.log(a.__proto__.run == a.prototype.run) //true
+    </script>
+</head>
+<body>
+
+</body>
+</html>
